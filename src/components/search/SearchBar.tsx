@@ -1,14 +1,23 @@
-
+import './SearchBar.style.css'
 interface Props {
     searchValue: string,
     setSearchValue: (value: string) => void
 }
 
-const SearchBar = ({ searchValue, setSearchValue }: Props) =>
+const SearchBar = ({ searchValue, setSearchValue }: Props) =>{
 
-(
-    <input value={searchValue} onChange={event => setSearchValue(event.target.value)} />
-);
+    return (
+        <div>
+
+            <label>Search product: 🔎 </label>
+            <input value={searchValue} onChange={event => setSearchValue(event.target.value)} />
+        </div>
+    
+    )
+}
+
+
+;
 
 
 export default SearchBar;
