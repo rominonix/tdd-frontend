@@ -1,46 +1,71 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
-import SearchResult from './components/search/SearchResult';
+// import Header from './components/Header';
+// import SearchResult from './components/search/SearchResult';
 import { Plant } from './module/Plant';
-
+import Home from './screen/Home';
+import bamboo from './images/bamboo.png'
+import Hortensia from './images/Hortensia.png'
+import Monstera from './images/Monstera.png'
+import orchid from './images/orchid.png'
+import snakePlant from './images/snake-plant.png'
+import yaopon from './images/yaopon.png'
 
 function App() {
-  const [searchText,setSearchText] =useState('')
+  // const [searchText,setSearchText] =useState('')
 
-  const plants:Plant[] = [
+  const plants: Plant[] = [
     {
       name:"Hortensia",
-      id:"001"
+      price: 123,
+      id:"001",
+      imageSrc:Hortensia
     },
     {
       name:"Bamboo",
-      id:"002"
+      price: 113,
+      id:"002",
+      imageSrc:bamboo
     },
     {
       name:"Monstera",
-      id:"003"
+      price: 103,
+      id:"003",
+      imageSrc:Monstera
     },
     {
       name:"Orchid",
-      id:"004"
+      price: 163,
+      id:"004",
+      imageSrc:orchid
     },
     {
       name:"Snake-plant",
-      id:"005"
-    }
+      price: 153,
+      id:"005",
+      imageSrc:snakePlant
+    },
+    {
+      name:"Yaopon",
+      price: 123,
+      id:"006",
+      imageSrc:yaopon
+    },
   ]
-  const filterSearchResult=plants.filter(plant=>plant.name.includes(searchText))
+  // const filterSearchResult=plants.filter(plant=>plant.name.includes(searchText))
   
 
 
   return (
     <div className="App">
-      <Header searchValue={searchText} setSearchValue={setSearchText}/>
+      {/* <Header searchValue={searchText} setSearchValue={setSearchText}/> */}
       <main>
-        <SearchResult plants={filterSearchResult} />
+        {/* <SearchResult plants={filterSearchResult} /> */}
+        <Home  plants={plants}/>
       </main>
-      <footer></footer>
+      <footer>
+        
+      </footer>
     </div>
   );
 }

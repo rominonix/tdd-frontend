@@ -1,4 +1,6 @@
 export interface Plant {
     name:string,
-    id:string
+    price:number,
+    id:string,
+    imageSrc:any
 }
