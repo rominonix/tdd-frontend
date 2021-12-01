@@ -1,24 +1,46 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import SearchResult from './components/search/SearchResult';
+import { Plant } from './module/Plant';
+
 
 function App() {
+  const [searchText,setSearchText] =useState('')
+
+  const plants:Plant[] = [
+    {
+      name:"Hortensia",
+      id:"001"
+    },
+    {
+      name:"Bamboo",
+      id:"002"
+    },
+    {
+      name:"Monstera",
+      id:"003"
+    },
+    {
+      name:"Orchid",
+      id:"004"
+    },
+    {
+      name:"Snake-plant",
+      id:"005"
+    }
+  ]
+  const filterSearchResult=plants.filter(plant=>plant.name.includes(searchText))
+  
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header searchValue={searchText} setSearchValue={setSearchText}/>
+      <main>
+        <SearchResult plants={filterSearchResult} />
+      </main>
+      <footer></footer>
     </div>
   );
 }
