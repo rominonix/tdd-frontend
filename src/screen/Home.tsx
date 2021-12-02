@@ -2,7 +2,7 @@
 import React from 'react';
 import Card from "../components/card/Card";
 import { Plant } from '../module/Plant';
-
+import Cart from '../components/Cart/Cart'
 interface Props {
     plants:Plant[]
 }
@@ -10,6 +10,7 @@ interface Props {
 function Home({ plants }: Props) {
     return (
         <main>
+        <Cart/>
             <Card plants={plants}/>
         </main>
     );

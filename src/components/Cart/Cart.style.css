@@ -1,0 +1,41 @@
+.cart {
+    margin: 0%;
+    background-color: turquoise;
+    /* height: 100vh; */
+    
+}
+.order-sumary {
+    padding: 3%;
+    /* height: auto; */
+    display: grid;
+    background-color: violet;
+    grid-template-columns: repeat(2, 1fr);
+}
+.product, .total {
+    height: auto;
+    display: grid;
+    flex-direction: column;
+    background-color: yellow;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.details {
+    display: flex;
+    text-align: justify;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10%;
+}
+
+.total {
+    padding: 5%;
+    background-color: yellowgreen;
+}
+
+.total > button {
+    height: 2rem;
+}
+.single-product-in-cart{
+    height: 20vh;
+    background-color: white;
+}
