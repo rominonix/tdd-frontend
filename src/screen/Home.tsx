@@ -11,7 +11,6 @@ function Home({ plants }: Props) {
     return (
         <main>
             <Card plants={plants}/>
-            
         </main>
     );
 }

@@ -3,6 +3,7 @@ import SearchBar from "../search/SearchBar";
 import "./Header.style.css";
 import userIcon from "../../images/user.png";
 import cart from "../../images/cart.png";
+// import Modal from '../Modal/Modal'
 
 interface Props {
   searchValue: string;
@@ -19,6 +20,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
         <img className="icon-login" src={userIcon} alt="" />
         <img className="icon-cart" src={cart} alt="" />
       </nav>
+      {/* <Modal/> */}
     </header>
   );
 };
