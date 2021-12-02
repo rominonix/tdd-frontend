@@ -13,7 +13,7 @@ interface Props {
 const Header = ({ searchValue, setSearchValue }: Props) => {
   return (
     <header className="header">
-      <h1> GreenLove 🌸 </h1>
+      <h1 className="title"> GreenLove 🌸 </h1>
 
       <nav>
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
