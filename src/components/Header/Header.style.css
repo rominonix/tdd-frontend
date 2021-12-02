@@ -3,26 +3,29 @@
   height: 5rem;
   position: sticky;
   align-items: center;
-  background-color: #bad989;
+  background-color: #2b2b2b;
+  /* color: #bad989; */
+  color: #f5f5f5;
   padding: 0 2%;
 }
 
-nav{
-    position:absolute;
-    right: 2%;
-    display: flex;
-    align-items: center;
-    
+nav {
+  position: absolute;
+  right: 6%;
+  display: flex;
+  align-items: center;
+  column-gap: 5%;
+}
+
+.icon-login {
+  width: 1.3rem;
+}
+
+.icon-cart {
+  width: 1.4rem;
 }
 
 nav > ul {
-    list-style: none;
-    display: flex;
-    /* align-self: stretch;
-  justify-content: center; */
-  /* align-self: flex-end; */
+  list-style: none;
+  display: flex;
 }
-
-/* li {
-  /* background-color: hotpink; */
-

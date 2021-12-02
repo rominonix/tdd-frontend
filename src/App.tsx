@@ -1,7 +1,7 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
-import SearchResult from './components/search/SearchResult';
+// import SearchResult from './components/search/SearchResult';
 import { Plant } from './module/Plant';
 import Home from './screen/Home';
 import bamboo from './images/bamboo.png'
@@ -12,7 +12,7 @@ import snakePlant from './images/snake-plant.png'
 import yaopon from './images/yaopon.png'
 
 function App() {
-  // const [searchText,setSearchText] =useState('')
+  const [searchText,setSearchText] =useState('')
 
   const plants: Plant[] = [
     {
@@ -52,7 +52,7 @@ function App() {
       imageSrc:yaopon
     },
   ]
-  // const filterSearchResult=plants.filter(plant=>plant.name.includes(searchText))
+  const filterSearchResult=plants.filter(plant=>plant.name.includes(searchText))
   
 
 
@@ -60,7 +60,7 @@ function App() {
     <div className="App">
       <Header searchValue={''} setSearchValue={function (value: string): void {
         throw new Error('Function not implemented.');
-      } } />
+      } }  />
       <main>
         {/* <SearchResult plants={filterSearchResult} /> */}
         <Home  plants={plants}/>

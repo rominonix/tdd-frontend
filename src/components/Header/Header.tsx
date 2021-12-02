@@ -1,6 +1,8 @@
 import React from "react";
 import SearchBar from "../search/SearchBar";
 import "./Header.style.css";
+import userIcon from "../../images/user.png";
+import cart from "../../images/cart.png";
 
 interface Props {
   searchValue: string;
@@ -10,14 +12,12 @@ interface Props {
 const Header = ({ searchValue, setSearchValue }: Props) => {
   return (
     <header className="header">
-      <h1> GreenLove 🌸 🌵 🌱  </h1>
-    
+      <h1> GreenLove 🌸 </h1>
+
       <nav>
         <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
-        <ul>
-          <li>login 😎 </li>
-          <li>cart 🛒 🧺 🛍️</li>
-        </ul>
+        <img className="icon-login" src={userIcon} alt="" />
+        <img className="icon-cart" src={cart} alt="" />
       </nav>
     </header>
   );
