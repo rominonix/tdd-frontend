@@ -2,8 +2,6 @@
 import './App.css';
 import Header from './components/Header/Header';
 import SearchResult from './components/search/SearchResult';
-// import Header from './components/Header';
-// import SearchResult from './components/search/SearchResult';
 import { Plant } from './module/Plant';
 import Home from './screen/Home';
 import bamboo from './images/bamboo.png'
@@ -60,7 +58,9 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Header searchValue={searchText} setSearchValue={setSearchText}/> */}
+      <Header searchValue={''} setSearchValue={function (value: string): void {
+        throw new Error('Function not implemented.');
+      } } />
       <main>
         {/* <SearchResult plants={filterSearchResult} /> */}
         <Home  plants={plants}/>
