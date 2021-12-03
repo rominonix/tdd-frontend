@@ -1,29 +1,40 @@
 
 import React from 'react';
-import { Plant } from '../../module/Plant';
+import {  useSelector } from 'react-redux';
 import AddToCard from '../addToCard/AddToCard';
+import { getProductsSelector } from '../../redux/slice/products.slice';
 import './card.css'
 
-interface Props {
-    plants:Plant[]
+
+
+interface ProductsListProps {
+    
 }
 
-const Card=({ plants }: Props) =>(
+const Card : React.FC<ProductsListProps>=({  }) => {
+    const products = useSelector(getProductsSelector)
 
-            <div className="SingleCard">
-                {plants.map(plant => (
-                    <div key={plant.id} >
-                        <img  alt="plants" src={plant.imageSrc} />
-                        <p>{plant.name}</p>
-                        <p>{plant.price} KR</p>
-                        <AddToCard />
-                    </div>
-                    
-                ))}
-                
-            </div>
-        )
+    return (
+
+    
+        <div className="SingleCard">
+           {products.map(product=> <div key ={product.id}>
+            <img alt="plants" src={product.imageSrc} />
+            <p>{product.name}</p>
+            <p>{product.price} KR</p>
+            <AddToCard />
+            </div>)}
+            
+
+
+
+
+        </div>
+    )
+}
+
 
 
 export default Card;
+
 

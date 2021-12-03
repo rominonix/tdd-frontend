@@ -1,18 +1,23 @@
 import React from "react";
 import Card from "../components/card/Card";
-import { Plant } from "../module/Plant";
 import Cart from "../components/Cart/Cart";
-interface Props {
-  plants: Plant[];
+
+interface ProductsListProps {
+    
 }
 
-function Home({ plants }: Props) {
-  return (
-    <main>
-      <Cart />
-      <Card plants={plants} />
-    </main>
-  );
+
+
+const Home: React.FC<ProductsListProps>=({  })=> {
+    
+
+    return (
+        <div>
+            <Cart/>
+            <Card />
+        </div>
+       
+    );
 }
 
-export default Home;
+export default Home
