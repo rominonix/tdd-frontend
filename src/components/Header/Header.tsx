@@ -4,6 +4,7 @@ import "./Header.style.css";
 import userIcon from "../../images/user.png";
 import cart from "../../images/cart.png";
 // import Modal from '../Modal/Modal'
+// import Cart from '../Cart/Cart'
 
 interface Props {
   searchValue: string;
@@ -21,6 +22,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
         <img className="icon-cart" src={cart} alt="" />
       </nav>
       {/* <Modal/> */}
+      {/* <Cart/> */}
     </header>
   );
 };
