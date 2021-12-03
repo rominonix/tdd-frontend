@@ -1,8 +1,10 @@
 
 import React from 'react';
 import {  useSelector } from 'react-redux';
-import AddToCard from '../addToCard/AddToCard';
-import { getProductsSelector } from '../../redux/slice/products.slice';
+import {useAppDispatch} from '../../redux/store.hooks'
+//import AddToCard from '../addToCard/AddToCard';
+import { getProductsSelector, Product } from '../../redux/slice/products.slice';
+import { addToCart } from '../../redux/slice/cart.slice';
 import './card.css'
 
 
@@ -13,7 +15,8 @@ interface ProductsListProps {
 
 const Card : React.FC<ProductsListProps>=({  }) => {
     const products = useSelector(getProductsSelector)
-
+    const dispatch = useAppDispatch()
+    const addToCartHandler = (product:Product)=>dispatch(addToCart(product))
     return (
 
     
@@ -22,7 +25,8 @@ const Card : React.FC<ProductsListProps>=({  }) => {
             <img alt="plants" src={product.imageSrc} />
             <p>{product.name}</p>
             <p>{product.price} KR</p>
-            <AddToCard />
+            <button onClick={()=>addToCartHandler(product)}>Add to cart</button>
+            {/* <AddToCard /> */}
             </div>)}
             
 
@@ -36,5 +40,6 @@ const Card : React.FC<ProductsListProps>=({  }) => {
 
 
 export default Card;
+
 
 
