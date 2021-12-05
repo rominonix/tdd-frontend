@@ -2,7 +2,7 @@
 import React from 'react';
 import {  useSelector } from 'react-redux';
 import AddToCard from '../addToCard/AddToCard';
-import { getProductsSelector } from '../../redux/slice/products.slice';
+import { getProductsSelector } from '../../store/slice/products.slice';
 import './card.css'
 
 
