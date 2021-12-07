@@ -40,7 +40,7 @@ const Card: React.FC<ProductsListProps> = ({ }) => {
                     <button onClick={() => addToCartHandler(product)}>Add to cart</button>
                     {/* <AddToCard /> */}
 
-                    {renderComponent ? <SingleProduct imageSrc={product.imageSrc} name={product.name} price={product.price} description={product.description} /> : null}
+                    {renderComponent ? <SingleProduct imageSrc={product.imageSrc} name={product.name} price={product.price} description={product.description} closeModal={}/> : null}
                 </div>)}
 
 
