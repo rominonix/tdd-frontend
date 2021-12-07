@@ -13,7 +13,8 @@ export interface Product {
     name:string,
     price:number,
     id:string,
-    imageSrc:any
+    imageSrc:any,
+    description:string
 }
 
 const initialState:Product[] = [
@@ -21,37 +22,43 @@ const initialState:Product[] = [
         name: "Hortensia",
         price: 123,
         id: "001",
-        imageSrc: Hortensia
+        imageSrc: Hortensia,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
     {
         name: "Bamboo",
         price: 113,
         id: "002",
-        imageSrc: bamboo
+        imageSrc: bamboo,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
     {
         name: "Monstera",
         price: 103,
         id: "003",
-        imageSrc: Monstera
+        imageSrc: Monstera,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
     {
         name: "Orchid",
         price: 163,
         id: "004",
-        imageSrc: orchid
+        imageSrc: orchid,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
     {
         name: "Snake-plant",
         price: 153,
         id: "005",
-        imageSrc: snakePlant
+        imageSrc: snakePlant,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
     {
         name: "Yaopon",
         price: 123,
         id: "006",
-        imageSrc: yaopon
+        imageSrc: yaopon,
+        description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum ut dignissim pellentesque ut amet. Ipsum donec enim arcu, tempus aenean non nisl. Egestas aenean sapien cum mi et at venenatis. Ac nascetur proin metus, tellus arcu mattis platea vitae. At ultricies sagittis cursus malesuada enim sed vivamus morbi id. Proin amet, amet, sed tortor."
     },
 ]
 
@@ -61,6 +68,9 @@ const productSlice=createSlice({
     reducers:{
         addProduct:(state,action:PayloadAction<Product>)=>{
             return [action.payload,...state]
+        },
+        getActiveProduct:(state,action:PayloadAction<string>)=>{
+            return state.filter(product=>product.id===action.payload)
         }
     }
 })
@@ -68,4 +78,8 @@ const productSlice=createSlice({
 
 export const {addProduct}= productSlice.actions
 export const getProductsSelector=(state:RootState)=>state.products
+export const {getActiveProduct} =productSlice.actions
+
 export default productSlice.reducer
+
+
