@@ -13,3 +13,9 @@
     z-index: 2;
 }
 
+.modal-close-button {
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-start;
+}
