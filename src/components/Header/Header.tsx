@@ -6,6 +6,8 @@ import userIcon from "../../images/user.png";
 import cart from "../../images/cart.png";
 import Login from "../Login/Login";
 import Cart from "../Cart/Cart";
+import SearchBar1 from "../search/SearchBar";
+// import SearchBar1 from "../search/SearchBar";
 
 interface Props {
   searchValue: string;
@@ -20,7 +22,8 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
       <h1 className="title"> GreenLove 🌸 </h1>
 
       <nav>
-        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
+        <SearchBar1/>
+        {/* <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} /> */}
         <img
           className="icon-login"
           onClick={() => {
