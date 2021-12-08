@@ -10,7 +10,7 @@ const activeCardSlice = createSlice({
     reducers: {
         addAvtiveCard: (state, action: PayloadAction<Product>) => {
             state.findIndex(product => product.id === action.payload.id)
-            state.push({...action.payload})
+            return [action.payload,...state]
         },
     },
 })

@@ -1,11 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import Header from "../components/Header/Header";
 import { shallow, mount } from "enzyme";
-import Modal from "../components/Modal/Modal";
-import SearchBar from "../components/search/SearchBar";
+import Login from "../components/Login/Login";
 
 describe("Tester for Header Component", () => {
-  test("HEADER COMPONENT // Render without errors", () => {
+  test("HEADER - Test if Header Component render without errors", () => {
     render(
       <Header
         searchValue={""}
@@ -16,7 +15,7 @@ describe("Tester for Header Component", () => {
     );
   });
 
-  test("HEADER COMPONENT // Has h1 with expected word Green", () => {
+  test("HEADER - Test if Header Component has h1 with expected word Green", () => {
     render(
       <Header
         searchValue={""}
@@ -28,10 +27,8 @@ describe("Tester for Header Component", () => {
     const heading = screen.getByText(/Green/);
     expect(heading).toBeInTheDocument();
   });
-});
 
-describe("Integration Tester for Header Component", () => {
-  test("HEADER COMPONENT // Has and Render a Modal Component", () => {
+  test("HEADER - Test if click in icon-login comes Login view", () => {
     const wrapper = mount(
       <Header
         searchValue={""}
@@ -41,27 +38,14 @@ describe("Integration Tester for Header Component", () => {
       />
     );
 
-    const actual = wrapper.contains(<Modal closeModal={undefined} />);
-    expect(actual).toBe(true);
+    expect(wrapper.find("nav").length).toEqual(1);
+    wrapper.find(".icon-login").simulate("click");
+    expect(
+      wrapper.containsMatchingElement(<Login closeModal={undefined} />)
+    ).toEqual(true);
   });
-
-//   test("HEADER COMPONENT // Has and Render a SearchBar Component", () => {
-//     const wrapper = mount(
-//       <Header
-//         searchValue={""}
-//         setSearchValue={function (value: string): void {
-//           throw new Error("Function not implemented.");
-//         }}
-//       />
-//     );
-
-//     const actual = wrapper.contains(<SearchBar searchValue={""} setSearchValue={function (value: string): void {
-//         throw new Error("Function not implemented.");
-//     } }  />);
-//     expect(actual).toBe(true);
-//   });
 });
 
-// test if input on change 
-// test if click in login 
+
+
 // test if click in cart

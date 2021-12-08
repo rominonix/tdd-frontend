@@ -6,21 +6,16 @@ import { getTotalPrice } from "../../redux/slice/cart.slice";
 
 const Cart: React.FC = () => {
   const totalPrice = useAppSelector(getTotalPrice);
-  //   const dispatch= useAppDispatch()
-
+  // const dispatch= useAppDispatch()
   // const handleRemoveFromCart =(productId:string)=> dispatch(removeFromCart(productId))
-
   return (
-    <>
-      <main className="cart">
-        <ProductInCart />
-
-        <div className="total">
-          <h2>Total Price</h2>
-          <h2>{totalPrice} SEK</h2>
-        </div>
-      </main>
-    </>
+    <main className="cart">
+      <ProductInCart />
+      <div className="total">
+        <h2>Total Price</h2>
+        <h2>{totalPrice} SEK</h2>
+      </div>
+    </main>
   );
 };
 

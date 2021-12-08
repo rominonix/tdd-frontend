@@ -27,7 +27,8 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
             setOpenModal(true);
           }}
           src={userIcon}
-          alt=""
+          alt="Login"
+          
         />
         <img className="icon-cart" src={cart} alt="" />
       </nav>
