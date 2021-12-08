@@ -27,9 +27,7 @@ describe("Tester for Header Component", () => {
     const heading = screen.getByText(/Green/);
     expect(heading).toBeInTheDocument();
   });
-});
 
-describe("Integration Testers for Header Component", () => {
   test("HEADER - Test if click in icon-login comes Login view", () => {
     const wrapper = mount(
       <Header
@@ -47,5 +45,7 @@ describe("Integration Testers for Header Component", () => {
     ).toEqual(true);
   });
 });
+
+
 
 // test if click in cart

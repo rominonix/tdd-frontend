@@ -7,16 +7,13 @@ import store from "./redux/store";
 import Header from "./components/Header/Header";
 
 describe("Tester for App Component", () => {
-  it("APP - Test if App Component render without errors", () => {
+  test("APP - Test if App Component render without errors", () => {
     render(
       <Provider store={store}>
         <App />
       </Provider>
     );
   });
-});
-
-describe("APP - Integration testers", () => {
   test("APP - Test if Home Screen renders into App Component initially", () => {
     const wrapper = mount(
       <Provider store={store}>
