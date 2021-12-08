@@ -1,0 +1,13 @@
+.cardDetail{
+    display: flex;
+    flex-direction: column;
+    max-width: 25em;
+    max-height: 30em;
+}
+.closeDetails{
+    height: 1.5em;
+    width: 1.5em;
+}
+.detailsDescription{
+    width: 100%
+}

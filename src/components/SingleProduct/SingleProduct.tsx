@@ -1,33 +1,25 @@
 
 import React from 'react';
-// import { getProductsSelector } from '../../redux/slice/products.slice';
-// import {  useSelector } from 'react-redux';
-
-import  useHistory  from "react-router-dom";
-
+import { getActiveProductSelector } from '../../redux/slice/activeProduct.slice';
+import { useAppSelector } from '../../redux/store.hooks';
+import './singleProduct.css'
 
 interface ProductsListProps {
-    imageSrc:any, name:String,price:Number,description:String,closeModal:Boolean
+    closeModal: any
 }
 
-const SingleProduct : React.FC<ProductsListProps>=({ imageSrc, name,price,description,closeModal }) => {
-    // const products = useSelector(getProductsSelector)
-    // const history = useHistory;
-    // const handleClose=()=>{
-    //     history.goBack();
-    // }
+const SingleProduct: React.FC<ProductsListProps> = ({ closeModal }) => {
+    const activeProducts = useAppSelector(getActiveProductSelector)
+
     return (
 
-    
-        <div className="SingleCard">
-           
-          
-            <img alt="plants" src={imageSrc} />
-            <p>{name}</p>
-            <p>{price} KR</p>
-            <p>{description}</p>
-            
-            <button onClick={() => closeModal(false)} >X</button>
+
+        <div className="cardDetail" key={activeProducts[0].id}>
+            <button className="closeDetails" onClick={() => closeModal(false)} >X</button>
+            <img alt="plants" src={activeProducts[0].imageSrc} />
+            <p>{activeProducts[0].name}</p>
+            <p>{activeProducts[0].price} KR</p>
+            <p className="detailsDescription">{activeProducts[0].description}</p>
         </div>
     )
 }
@@ -37,26 +29,3 @@ const SingleProduct : React.FC<ProductsListProps>=({ imageSrc, name,price,descri
 export default SingleProduct;
 
 
-// interface Props {
-//     closeModal: any;
-//   }
-  
-//   const Login = ({ closeModal }: Props) => {
-//     return (
-//       <main className="modal">
-//         <div className="login">
-//           <h2>Sign in 🌵 </h2>
-//           <hr />
-//           <input type="text" placeholder="username" />
-//           <input type="text" placeholder="password" />
-  
-//           <button>Login</button>
-//         </div>
-//         <button className="modal-close-button" onClick={() => closeModal(false)}>
-//           <h4>X</h4>
-//         </button>
-//       </main>
-//     );
-//   };
-  
-//   export default Login;
