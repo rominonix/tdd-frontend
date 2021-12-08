@@ -1,13 +1,11 @@
-import { createSlice ,PayloadAction} from "@reduxjs/toolkit";
-import bamboo from '../../images/bamboo.png'
-import Hortensia from '../../images/Hortensia.png'
-import Monstera from '../../images/Monstera.png'
-import orchid from '../../images/orchid.png'
-import snakePlant from '../../images/snake-plant.png'
-import yaopon from '../../images/yaopon.png'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import bamboo from "../../images/bamboo.png";
+import Hortensia from "../../images/Hortensia.png";
+import Monstera from "../../images/Monstera.png";
+import orchid from "../../images/orchid.png";
+import snakePlant from "../../images/snake-plant.png";
+import yaopon from "../../images/yaopon.png";
 import { RootState } from "../store";
-
-
 
 export interface Product {
     name:string,
@@ -71,12 +69,9 @@ const productSlice=createSlice({
         },
     
 })
-
-
+ 
 // export const {addProduct}= productSlice.actions
 export const getProductsSelector=(state:RootState)=>state.products
-
-
 export default productSlice.reducer
 
 

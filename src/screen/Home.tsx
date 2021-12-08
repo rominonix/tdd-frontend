@@ -3,9 +3,8 @@ import Card from "../components/card/Card";
 import Cart from "../components/Cart/Cart";
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 
-interface ProductsListProps {
-    
-}
+interface ProductsListProps {}
+
 
 
 
@@ -23,3 +22,4 @@ const Home: React.FC<ProductsListProps>=({  })=> {
 }
 
 export default Home
+
