@@ -48,6 +48,4 @@ describe("Integration Testers for Header Component", () => {
   });
 });
 
-// test if input on change
-// test if click in login
 // test if click in cart
