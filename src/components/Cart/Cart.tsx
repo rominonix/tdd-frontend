@@ -4,12 +4,20 @@ import "./Cart.style.css";
 import { useAppSelector } from "../../redux/store.hooks";
 import { getTotalPrice } from "../../redux/slice/cart.slice";
 
-const Cart: React.FC = () => {
+interface Props {
+  closeModal: any;
+}
+
+const Cart = ({ closeModal }: Props) => {
   const totalPrice = useAppSelector(getTotalPrice);
   // const dispatch= useAppDispatch()
   // const handleRemoveFromCart =(productId:string)=> dispatch(removeFromCart(productId))
   return (
     <main className="cart">
+      <button className='close-cart' onClick={() => closeModal(false)}>
+
+      <h4 >X</h4>
+      </button>
       <ProductInCart />
       <div className="total">
         <h2>Total Price</h2>

@@ -18,13 +18,13 @@ const ProductInCart: React.FC = () => {
   return (
     <>
       <main className="product-in-cart">
-        <h2 className="cart-summary">Order Summary</h2>
+        <h3 className="cart-summary">Order Summary</h3>
         <div className="order-summary">
           {cartProducts.map((product) => (
             <div className="product" key={product.id}>
               <img src={product.imageSrc} alt="" />
               <div className="details">
-                <h2>{product.name}</h2>
+                <h3>{product.name}</h3>
                 <h4>{product.price} SEK</h4>
                 <p>Amount:{product.amount}</p>
                 <span

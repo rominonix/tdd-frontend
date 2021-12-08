@@ -4,9 +4,8 @@ import SearchBar from "../search/SearchBar";
 import "./Header.style.css";
 import userIcon from "../../images/user.png";
 import cart from "../../images/cart.png";
-import Modal from '../Modal/Modal'
-import Login from '../Login/Login'
-// import Cart from '../Cart/Cart'
+import Login from "../Login/Login";
+import Cart from "../Cart/Cart";
 
 interface Props {
   searchValue: string;
@@ -14,7 +13,8 @@ interface Props {
 }
 
 const Header = ({ searchValue, setSearchValue }: Props) => {
-  const [openModal, setOpenModal] = useState(false);
+  const [openModalLogin, setOpenModalLogin] = useState(false);
+  const [openModalCart, setOpenModalCart] = useState(false);
   return (
     <header className="header">
       <h1 className="title"> GreenLove 🌸 </h1>
@@ -24,16 +24,22 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
         <img
           className="icon-login"
           onClick={() => {
-            setOpenModal(true);
+            setOpenModalLogin(true);
           }}
           src={userIcon}
           alt="Login"
-          
         />
-        <img className="icon-cart" src={cart} alt="" />
+        <img
+          className="icon-cart"
+          onClick={() => {
+            setOpenModalCart(true);
+          }}
+          src={cart}
+          alt=""
+        />
       </nav>
-      {openModal && <Login closeModal={setOpenModal}/>}
-      {/* <Cart/> */}
+      {openModalLogin && <Login closeModal={setOpenModalLogin} />}
+      {openModalCart && <Cart closeModal={setOpenModalCart}/>}
     </header>
   );
 };
