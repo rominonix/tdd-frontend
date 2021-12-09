@@ -1,20 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import SearchBar from "../search/SearchBar";
-import "./Header.style.css";
+import { useSelector } from "react-redux";
 import userIcon from "../../images/user.png";
 import cart from "../../images/cart.png";
 import Login from "../Login/Login";
 import Cart from "../Cart/Cart";
-import SearchBar1 from "../search/SearchBar";
+import SearchBar from "../search/SearchBar";
+import "./Header.style.css";
 // import SearchBar1 from "../search/SearchBar";
+// import SearchBar1 from "../search/SearchBar";
+// import SearchResult from '../search/SearchResult'
+import {getProductsSelector} from '../../redux/slice/products.slice'
 
-interface Props {
-  searchValue: string;
-  setSearchValue: (value: string) => void;
-}
+interface ProductsListProps {}
 
-const Header = ({ searchValue, setSearchValue }: Props) => {
+const Header:  React.FC<ProductsListProps>  = ({}) => {
+  const products = useSelector(getProductsSelector)
+ 
+ 
+  
   const [openModalLogin, setOpenModalLogin] = useState(false);
   const [openModalCart, setOpenModalCart] = useState(false);
   return (
@@ -22,8 +26,10 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
       <h1 className="title"> GreenLove 🌸 </h1>
 
       <nav>
-        <SearchBar1/>
-        {/* <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} /> */}
+        <div className="search-bar">
+
+        <SearchBar data={products} />
+        </div>
         <img
           className="icon-login"
           onClick={() => {
@@ -32,6 +38,7 @@ const Header = ({ searchValue, setSearchValue }: Props) => {
           src={userIcon}
           alt="Login"
         />
+        
         <img
           className="icon-cart"
           onClick={() => {

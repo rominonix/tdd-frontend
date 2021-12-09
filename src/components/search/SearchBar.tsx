@@ -3,40 +3,56 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store.hooks";
 //import AddToCard from '../addToCard/AddToCard';
-import { getProductsSelector, Product } from "../../redux/slice/products.slice";
+// import { getProductsSelector, Product } from "../../redux/slice/products.slice";
 
+interface ProductsListProps {
+  data: any;
+}
 
-const SearchBar1 = () => {
- const products = useSelector(getProductsSelector)
- const productName = products.map(product =>{
-  return product.name })
-   
-console.log(productName);
+const SearchBar: React.FC<ProductsListProps> = ({ data }) => {
+  // const product = useSelector(getProductsSelector);
+  const [filteredData, setFilteredData] = useState([])
+  const [wordEntered, setWordEntered] = useState('')
+  
+  const handlerFilter = (e: { target: { value: any; }; }) =>{
+    const searchWord = e.target.value
+    setWordEntered(searchWord)
+    const newFilter = data.filter((value: { name: string })=>{
+      return value.name.toLowerCase().includes(searchWord.toLowerCase())
+    })
+    if(searchWord===''){
+      setFilteredData([])
+    } else {
 
+      setFilteredData(newFilter)
+    }
+  }
+
+  const clearInput = () =>{
+    setFilteredData([])
+    setWordEntered('')
+  }
+  
   return (
     <div className="search">
-    
-     
+      <div className='input-section'>
+        <input className='input-search' type='text' value={wordEntered} placeholder="Search plants..." onChange={handlerFilter} />
+        <div className="button-search">
+          {filteredData.length === 0 ? (<p>🔎</p>): (<p onClick={clearInput}> ✖️ </p> )}
+          
+          </div>
+      </div>
+      {filteredData.length != 0 &&
+      <div className='search-result'>
+        {filteredData.map((value: { name: any; key: any }) => {
+          return <p key={data.id}>{value.name}</p>;
+        })}
+      </div>
+
+      }
     </div>
   );
-}
- 
-export default SearchBar1
-// interface Props {
-//   searchValue: string;
-//   setSearchValue: (value: string) => void;
-// }
+};
 
-// const SearchBar = ({ searchValue, setSearchValue }: Props) => {
-//   return (
-//     <div className="search">
-//       <input
-//         value={searchValue}
-//         onChange={(event) => setSearchValue(event.target.value)}
-//       />
-//       <button className="button-search">🔎 Search </button>
-//     </div>
-//   );
-// };
+export default SearchBar;
 
-// export default SearchBar

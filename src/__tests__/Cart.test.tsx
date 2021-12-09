@@ -9,7 +9,7 @@ describe("Tester for Cart View", () => {
   test("CART - Test if Cart render without errors", () => {
     render(
       <Provider store={store}>
-        <Cart />
+        <Cart closeModal={undefined} />
       </Provider>
     );
   });
@@ -17,7 +17,7 @@ describe("Tester for Cart View", () => {
   test("CART - Test if Cart View has h2 with expected word Total", () => {
     render(
       <Provider store={store}>
-        <Cart />
+        <Cart closeModal={undefined} />
       </Provider>
     );
     const heading = screen.getByText(/Total/);
@@ -27,16 +27,16 @@ describe("Tester for Cart View", () => {
   test("CART - Test if h2 in Cart view", () => {
     const wrapper = mount(
       <Provider store={store}>
-        <Cart />
+        <Cart closeModal={undefined} />
       </Provider>
     );
-    expect(wrapper.find("h2").length).toEqual(3);
+    expect(wrapper.find("h2").length).toEqual(2);
   });
 
   test("CART - Test if Cart contains ProductInCart View", () => {
     const wrapper = mount(
       <Provider store={store}>
-        <Cart />
+        <Cart closeModal={undefined} />
       </Provider>
     );
     expect(wrapper.find("main").length).toEqual(2);

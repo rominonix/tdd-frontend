@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import Header from "../components/Header/Header";
 import { shallow, mount } from "enzyme";
 import Login from "../components/Login/Login";
 

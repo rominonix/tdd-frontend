@@ -8,9 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header searchValue={''} setSearchValue={function (value: string): void {
-        throw new Error('Function not implemented.');
-      } }  />
+      <Header />
       <main>
         <Home   />
       </main>

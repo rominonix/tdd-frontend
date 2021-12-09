@@ -4,7 +4,6 @@
   position: sticky;
   align-items: center;
   background-color: #2b2b2b;
-  /* color: #bad989; */
   color: #f5f5f5;
   padding: 0 2%;
 }
@@ -12,12 +11,15 @@
   text-transform: none;
 }
 nav {
+  width: 20%;
+  height: 5rem;
   position: absolute;
-  right: 6%;
+  right: 6%; 
   display: flex;
   align-items: center;
-  column-gap: 5%;
+  column-gap: 6%;
 }
+
 
 .icon-login {
   width: 1.3rem;
@@ -30,4 +32,8 @@ nav {
 nav > ul {
   list-style: none;
   display: flex;
+}
+
+.search-bar {
+  margin-right: 4%;
 }
