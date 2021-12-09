@@ -15,11 +15,19 @@ const SingleProduct: React.FC<ProductsListProps> = ({ closeModal }) => {
 
 
         <div className="cardDetail" key={activeProducts[0].id}>
-            <button className="closeDetails" onClick={() => closeModal(false)} >X</button>
-            <img alt="plants" src={activeProducts[0].imageSrc} />
-            <p>{activeProducts[0].name}</p>
-            <p>{activeProducts[0].price} KR</p>
-            <p className="detailsDescription">{activeProducts[0].description}</p>
+            <div className="allDetail">
+                    <button className="closeDetails" onClick={() => closeModal(false)} >X</button>
+                <div className="detailImage">
+                    <img alt="plants" src={activeProducts[0].imageSrc} />
+                </div>
+                <div className="detailsText">
+                    <h1 className="name">{activeProducts[0].name}</h1>
+                    <h2 className="price">{activeProducts[0].price} KR</h2>
+                    <p className="detailsDescription">{activeProducts[0].description}</p>
+                </div>
+            </div>
+
+
         </div>
     )
 }
