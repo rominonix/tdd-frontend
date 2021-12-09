@@ -15,7 +15,7 @@ export interface Product {
     description:string
 }
 
-const initialState:Product[] = [
+export const initialState:Product[] = [
     {
         name: "Hortensia",
         price: 123,
