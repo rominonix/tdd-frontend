@@ -16,7 +16,7 @@ const ProductInCart: React.FC = () => {
     dispatch(removeFromCart(productId));
 
   return (
-    <>
+  
       <main className="product-in-cart">
         <h3 className="cart-summary">Order Summary</h3>
         <div className="order-summary">
@@ -38,7 +38,7 @@ const ProductInCart: React.FC = () => {
           ))}
         </div>
       </main>
-    </>
+  
   );
 };
 
