@@ -23,7 +23,7 @@ const Card: React.FC<ProductsListProps> = ({ setRenderComponent }) => {
   return (
     <div className="SingleCard">
       {products.map(product =>
-        <div key={product.id} className={`${product.id}`}>
+        <div key={product.id} >
           <img alt="plants"  src={product.imageSrc} onClick={() => renderComponentHandler(product)} />
           <p>{product.name}</p>
           <p>{product.price} KR</p>

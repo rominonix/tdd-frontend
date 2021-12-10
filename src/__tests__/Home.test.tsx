@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render,screen } from "@testing-library/react";
 import { mount, shallow } from "enzyme";
 import { Provider } from "react-redux";
 import Home from "../screen/Home";
@@ -6,6 +6,12 @@ import store from "../redux/store";
 import Card from "../components/card/Card"
 import SingleProduct from "../components/SingleProduct/SingleProduct";
 import { initialState } from "../redux/slice/products.slice";
+
+// import { render, screen } from "@testing-library/react";
+// import Header from "../components/Header/Header";
+// import { shallow, mount } from "enzyme";
+// import Login from "../components/Login/Login";
+
 
 describe("Tester for Home Component", () => {
     test("HOME - Test if Home component render without errors", () => {
@@ -22,27 +28,19 @@ describe("Tester for Home Component", () => {
                 <Home />
             </Provider>
         );
-
-        expect(
-            wrapper.containsMatchingElement(<Card setRenderComponent={undefined} />)).toEqual(true);
+        expect(wrapper.containsMatchingElement(<Card setRenderComponent={undefined} />)).toEqual(true);
     });
-    test("HOME - Test if Home Component contains <SingleCard/> component", () => {
-
-        const wrapper = shallow(
+    
+    test("HOME - Test if <SingleCard/> component render after image has clicked", () => {
+        const wrapper = mount(
             <Provider store={store}>
                 <Home />
             </Provider>
         );
-        const product = initialState[0]
-        console.log(product)
-        wrapper.find(".SingleCard").find(".001").simulate("click");
-        expect(wrapper.find(<SingleProduct closeModal={undefined} />).length).toEqual(1)
-        // const wrapper = mount(
-        //     <Provider store={store}>
-        //         <Home />
-        //     </Provider>
-        // );
-        // wrapper.find(".singlecard").simulate("click");
-
+        expect(wrapper.containsMatchingElement(<Card setRenderComponent={undefined} />)).toEqual(true);
+        wrapper.find(".SingleCard").simulate("click")
+        expect(wrapper.find("img").length).toEqual(6)
+        wrapper.find("img").at(0).simulate("click")
+        expect(wrapper.containsMatchingElement(<SingleProduct closeModal={undefined} />)).toEqual(true)
     });
 });
