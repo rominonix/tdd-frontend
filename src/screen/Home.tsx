@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../components/card/Card";
-// import SearchResult from '../components/search/SearchResult'
-// import SearchBar from '../components/search/SearchBar'
-// import { useSelector } from "react-redux";
-
-// import {getProductsSelector} from '../redux/slice/products.slice'
+import Cart from "../components/Cart/Cart";
+import SingleProduct from "../components/SingleProduct/SingleProduct";
 
 interface ProductsListProps {}
 
-const Home: React.FC<ProductsListProps> = ({}) => {
 
-  // const products = useSelector(getProductsSelector)
-  return (
-    <div>
-       {/* <SearchBar data={products} /> */}
-      <Card />
-    </div>
-  );
-};
 
-export default Home;
+
+const Home: React.FC<ProductsListProps>=({  })=> {
+    const [renderComponent, setRenderComponent] = useState(false)
+
+    return (
+        <div>
+            <Card setRenderComponent={setRenderComponent}/>
+            {renderComponent ? <SingleProduct  closeModal={setRenderComponent}/> : null}
+        </div>
+       
+    );
+}
+
+export default Home
+
